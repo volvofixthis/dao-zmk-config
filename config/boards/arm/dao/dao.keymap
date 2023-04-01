@@ -21,9 +21,6 @@
 	quick_tap_ms = <200>;
 	tapping_term_ms = <100>;
 };
-&kp {
-	quick_tap_ms = <200>;
-};
 
 / {
         keymap {
