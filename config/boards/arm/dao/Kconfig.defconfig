@@ -21,6 +21,9 @@ endif # BOARD_DAO_RIGHT
 
 if BOARD_DAO_LEFT || BOARD_DAO_RIGHT
 
+config ZMK_USB_LOGGING
+	default y
+
 config BOARD
 	default "dao"
 
