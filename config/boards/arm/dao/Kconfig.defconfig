@@ -31,7 +31,7 @@ config BT_CTLR
 	default BT
 
 config ZMK_BLE
-	default y
+	default n
 
 config ZMK_USB
 	default y
