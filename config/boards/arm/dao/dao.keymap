@@ -38,6 +38,11 @@
             key-positions = <39 41 6>;
             bindings = <&to DEF>;
         };
+		combo_game {
+            timeout-ms = <50>;
+            key-positions = <8 20 12 14 15>;
+            bindings = <&to GAME>;
+        };
     };
 };
 
@@ -114,21 +119,21 @@
                                                 &trans          &none           &trans              &trans       &none        &trans                                       
                         >;
                 };
-				gaming_layer {
+				game_layer {
                         bindings = <
-//    ┌───────────┬───┬───┬──────┬─────┬─────┐   ┌────────────┬──────────────┬──────────────┬───┬───┬───┐
-//    │    esc    │ Q │ W │  E   │  R  │  T  │   │     Y      │      U       │      I       │ O │ P │ [ │
-//    ├───────────┼───┼───┼──────┼─────┼─────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───┤
-//    │    tab    │ A │ S │  D   │  F  │  G  │   │     H      │      J       │      K       │ L │ ; │ ' │
-//    ├───────────┼───┼───┼──────┼─────┼─────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───┤
-//    │ mt lctl ` │ Z │ X │  C   │  V  │  B  │   │     N      │      M       │      ,       │ . │ / │ \ │
-//    └───────────┴───┴───┼──────┼─────┼─────┤   ├────────────┼──────────────┼──────────────┼───┴───┴───┘
-//                        │ lsft │ spc │ ent │   │ lt LWR esc │ mt rsft bspc │ lt rsftE del │            
-//                        └──────┴─────┴─────┘   └────────────┴──────────────┴──────────────┘            
-  &kp ESC           &kp Q   &kp W   &kp E       &kp R       &kp T         &kp Y         &kp U            &kp I         &kp O     &kp P      &kp LBKT
-  &kp TAB           &kp A   &kp S   &kp D       &kp F       &kp G         &kp H         &kp J            &kp K         &kp L     &kp SEMI   &kp SQT 
-  &mt LCTRL GRAVE   &kp Z   &kp X   &kp C       &kp V       &kp B         &kp N         &kp M            &kp COMMA     &kp DOT   &kp FSLH   &kp BSLH
-                                    &kp LSHFT   &kp SPACE   &kp RET       &kp ESC   &mt RSHFT BSPC   &kp DEL                               
+//    ┌───────────┬───┬───┬──────┬─────┬─────┐   ┌─────┬──────────────┬─────┬───┬───┬───┐
+//    │    esc    │ Q │ W │  E   │  R  │  T  │   │  Y  │      U       │  I  │ O │ P │ [ │
+//    ├───────────┼───┼───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┼───┼───┤
+//    │    tab    │ A │ S │  D   │  F  │  G  │   │  H  │      J       │  K  │ L │ ; │ ' │
+//    ├───────────┼───┼───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┼───┼───┤
+//    │ mt lctl ` │ Z │ X │  C   │  V  │  B  │   │  N  │      M       │  ,  │ . │ / │ \ │
+//    └───────────┴───┴───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┴───┴───┘
+//                        │ lsft │ spc │ ent │   │ esc │ mt rsft bspc │ del │            
+//                        └──────┴─────┴─────┘   └─────┴──────────────┴─────┘            
+  &kp ESC           &kp Q   &kp W   &kp E       &kp R       &kp T         &kp Y     &kp U            &kp I       &kp O     &kp P      &kp LBKT
+  &kp TAB           &kp A   &kp S   &kp D       &kp F       &kp G         &kp H     &kp J            &kp K       &kp L     &kp SEMI   &kp SQT 
+  &mt LCTRL GRAVE   &kp Z   &kp X   &kp C       &kp V       &kp B         &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH   &kp BSLH
+                                    &kp LSHFT   &kp SPACE   &kp RET       &kp ESC   &mt RSHFT BSPC   &kp DEL                                  
                         >;
                 };
         };
