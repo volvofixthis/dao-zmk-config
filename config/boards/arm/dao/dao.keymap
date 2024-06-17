@@ -33,9 +33,9 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_esc {
+        combo_def {
             timeout-ms = <50>;
-            key-positions = <42 44 6>;
+            key-positions = <39 41 6>;
             bindings = <&to DEF>;
         };
     };
