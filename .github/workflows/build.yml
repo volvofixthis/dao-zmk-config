@@ -2,4 +2,4 @@ on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
-    uses: volvofixthis/dao-zmk-config/.github/workflows/build-user-config.yml@dao-42-working-4
+    uses: volvofixthis/dao-zmk-config/.github/workflows/build-user-config.yml@dao42-working-4
