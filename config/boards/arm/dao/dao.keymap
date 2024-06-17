@@ -12,9 +12,16 @@
 #define LWR 1
 #define RSE 2
 #define ADJ 3
+#define GAME 4
 
-&lt { quick_tap_ms = <200>; };
-&mt { quick_tap_ms = <200>; };
+&lt {
+	quick_tap_ms = <200>;
+	tapping_term_ms = <100>;
+};
+&mt {
+	quick_tap_ms = <200>;
+	tapping_term_ms = <100>;
+};
 
 / {
     chosen {
@@ -29,35 +36,88 @@
 
                 default_layer {
                         bindings = <
-          &mt LGUI RBKT     &kp Q   &kp W   &kp E         &kp R             &kp T         &kp Y         &kp U            &kp I         &kp O     &kp P      &kp LBKT       
-          &mt LCTRL GRAVE   &kp A   &kp S   &kp D         &kp F             &kp G         &kp H         &kp J            &kp K         &kp L     &kp SEMI   &mt RCTRL SQT
-          &mt LALT MINUS    &kp Z   &kp X   &kp C         &kp V             &kp B         &kp N         &kp M            &kp COMMA     &kp DOT   &kp FSLH   &mt RALT BSLH
-                                            &lt RSE TAB   &mt LSHFT SPACE   &lt LWR RET   &lt LWR ESC   &mt RSHFT BSPC   &lt RSE DEL
+//    ┌───────────┬───┬───┬──────────────┬─────────────┬────────────┐   ┌────────────┬──────────────┬──────────────┬───┬───┬───┐
+//    │ mt lgui ] │ Q │ W │      E       │      R      │     T      │   │     Y      │      U       │      I       │ O │ P │ [ │
+//    ├───────────┼───┼───┼──────────────┼─────────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───┤
+//    │ mt lctl ` │ A │ S │      D       │      F      │     G      │   │     H      │      J       │      K       │ L │ ; │ ' │
+//    ├───────────┼───┼───┼──────────────┼─────────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───┤
+//    │ mt lalt - │ Z │ X │      C       │      V      │     B      │   │     N      │      M       │      ,       │ . │ / │ \ │
+//    └───────────┴───┴───┼──────────────┼─────────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┴───┴───┘
+//                        │ lt rsftE tab │ mt lsft spc │ lt LWR ent │   │ lt LWR esc │ mt rsft bspc │ lt rsftE del │            
+//                        └──────────────┴─────────────┴────────────┘   └────────────┴──────────────┴──────────────┘            
+  &mt LGUI RBKT     &kp Q   &kp W   &kp E         &kp R             &kp T             &kp Y         &kp U            &kp I         &kp O     &kp P      &kp LBKT
+  &mt LCTRL GRAVE   &kp A   &kp S   &kp D         &kp F             &kp G             &kp H         &kp J            &kp K         &kp L     &kp SEMI   &kp SQT 
+  &mt LALT MINUS    &kp Z   &kp X   &kp C         &kp V             &kp B             &kp N         &kp M            &kp COMMA     &kp DOT   &kp FSLH   &kp BSLH
+                                    &lt RSE TAB   &mt LSHFT SPACE   &lt LWR RET       &lt LWR ESC   &mt RSHFT BSPC   &lt RSE DEL                                
                         >;
                 };
                 lower_layer {
                         bindings = <
-          &mt LGUI F1      &kp F2     &kp F3   &kp F4        &kp F5     &kp F6      &kp F7      &kp F8     &kp F9        &kp F10    &kp F11    &kp F12           
-          &mt LCTRL PLUS   &kp EXCL   &kp AT   &kp HASH      &kp DLLR   &kp PRCNT   &kp CARET   &kp AMPS   &kp STAR      &kp LPAR   &kp RPAR   &mt RCTRL MINUS
-          &mt LALT EQUAL   &kp N1     &kp N2   &kp N3        &kp N4     &kp N5      &kp N6      &kp N7     &kp N8        &kp N9     &kp N0     &kp RALT
-                                               &lt ADJ TAB   &trans     &trans      &trans      &trans     &lt ADJ DEL
+//    ┌────────────┬────┬────┬────────────┬─────┬─────┐   ┌─────┬─────┬────────────┬─────┬─────┬─────┐
+//    │ mt lgui f1 │ f2 │ f3 │     f4     │ f5  │ f6  │   │ f7  │ f8  │     f9     │ f10 │ f11 │ f12 │
+//    ├────────────┼────┼────┼────────────┼─────┼─────┤   ├─────┼─────┼────────────┼─────┼─────┼─────┤
+//    │ mt lctl +  │ !  │ @  │     #      │  $  │  %  │   │  ^  │  &  │     *      │  (  │  )  │  -  │
+//    ├────────────┼────┼────┼────────────┼─────┼─────┤   ├─────┼─────┼────────────┼─────┼─────┼─────┤
+//    │ mt lalt =  │ 1  │ 2  │     3      │  4  │  5  │   │  6  │  7  │     8      │  9  │  0  │  =  │
+//    └────────────┴────┴────┼────────────┼─────┼─────┤   ├─────┼─────┼────────────┼─────┴─────┴─────┘
+//                           │ lt ADJ tab │     │     │   │     │     │ lt ADJ del │                  
+//                           └────────────┴─────┴─────┘   └─────┴─────┴────────────┘                  
+  &mt LGUI F1      &kp F2     &kp F3   &kp F4        &kp F5     &kp F6          &kp F7      &kp F8     &kp F9        &kp F10    &kp F11    &kp F12  
+  &mt LCTRL PLUS   &kp EXCL   &kp AT   &kp HASH      &kp DLLR   &kp PRCNT       &kp CARET   &kp AMPS   &kp STAR      &kp LPAR   &kp RPAR   &kp MINUS
+  &mt LALT EQUAL   &kp N1     &kp N2   &kp N3        &kp N4     &kp N5          &kp N6      &kp N7     &kp N8        &kp N9     &kp N0     &kp EQUAL
+                                       &lt ADJ TAB   &trans     &trans          &trans      &trans     &lt ADJ DEL                                  
                         >;
                 };
 
                 raise_layer {
                         bindings = <
-          &mt LGUI KP_NUM   &kp KP_SLASH      &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_MINUS   &kp C_VOL_UP   &kp HOME   &kp PSCRN   &kp PG_UP   &kp SLCK          &kp CLCK   
-          &mt LCTRL EQUAL   &kp KP_MULTIPLY   &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_PLUS    &kp C_MUTE     &kp LEFT   &kp UP      &kp RIGHT   &kp INS           &mt RCTRL  K_APP
-          &kp LALT          &kp KP_N0         &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DOT     &kp C_VOL_DN   &kp END    &kp DOWN    &kp PG_DN   &kp PAUSE_BREAK   &kp RALT
-                                                          &trans      &trans      &lt ADJ RET    &lt ADJ ESC    &trans     &trans
+//    ┌──────────────┬──────┬───┬─────┬─────┬────────────┐   ┌────────────┬──────┬──────┬──────┬────────┬──────┐
+//    │ mt lgui nlck │ kp_/ │ 7 │  8  │  9  │    kp_-    │   │    volu    │ home │ pscr │ pgup │  slck  │ caps │
+//    ├──────────────┼──────┼───┼─────┼─────┼────────────┤   ├────────────┼──────┼──────┼──────┼────────┼──────┤
+//    │  mt lctl =   │ kp_* │ 4 │  5  │  6  │    kp_+    │   │    left    │ down │  up  │ rght │ K_BACK │ app  │
+//    ├──────────────┼──────┼───┼─────┼─────┼────────────┤   ├────────────┼──────┼──────┼──────┼────────┼──────┤
+//    │     lalt     │  0   │ 1 │  2  │  3  │    kp_.    │   │    vold    │ end  │ mute │ pgdn │  paus  │      │
+//    └──────────────┴──────┴───┼─────┼─────┼────────────┤   ├────────────┼──────┼──────┼──────┴────────┴──────┘
+//                              │     │     │ lt ADJ ent │   │ lt ADJ esc │      │      │                       
+//                              └─────┴─────┴────────────┘   └────────────┴──────┴──────┘                       
+  &mt LGUI KP_NUM   &kp KP_SLASH      &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_MINUS       &kp C_VOL_UP   &kp HOME   &kp PSCRN    &kp PG_UP   &kp SLCK          &kp CLCK 
+  &mt LCTRL EQUAL   &kp KP_MULTIPLY   &kp KP_N4   &kp KP_N5   &kp KP_N6   &kp KP_PLUS        &kp LEFT       &kp DOWN   &kp UP       &kp RIGHT   &kp K_BACK        &kp K_APP
+  &kp LALT          &kp KP_N0         &kp KP_N1   &kp KP_N2   &kp KP_N3   &kp KP_DOT         &kp C_VOL_DN   &kp END    &kp C_MUTE   &kp PG_DN   &kp PAUSE_BREAK   &none    
+                                                  &trans      &trans      &lt ADJ RET        &lt ADJ ESC    &trans     &trans                                              
                         >;
                 };
                 adjust_layer {
                         bindings = <
- &bootloader   &none          &none          &none          &none          &none          &none          &none          &none          &none          &none          &bootloader
- &bt BT_CLR    &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4   &bt BT_SEL 4   &bt BT_SEL 3   &bt BT_SEL 2   &bt BT_SEL 1   &bt BT_SEL 0   &bt BT_CLR
- &sys_reset        &none          &none          &none          &none          &none          &none          &none          &none          &none          &none          &sys_reset
-                                             &trans         &none          &trans         &trans         &none          &trans
+//    ┌────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐   ┌────────┬────────┬─────┬─────┬────────────┬────────────┐
+//    │    boot    │              │              │              │              │   tog GAME   │   │        │        │     │     │            │    boot    │
+//    ├────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼────────┼─────┼─────┼────────────┼────────────┤
+//    │            │   bt_sel 0   │   bt_sel 1   │   bt_sel 2   │   bt_sel 3   │   bt_sel 4   │   │ bt_prv │ bt_nxt │     │     │            │   bt_clr   │
+//    ├────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼────────┼─────┼─────┼────────────┼────────────┤
+//    │ &sys_reset │ bt_BT_DISC 0 │ bt_BT_DISC 1 │ bt_BT_DISC 2 │ bt_BT_DISC 3 │ bt_BT_DISC 4 │   │        │        │     │     │ bt_clr_ALL │ &sys_reset │
+//    └────────────┴──────────────┴──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼────────┼─────┼─────┴────────────┴────────────┘
+//                                               │              │              │              │   │        │        │     │                                
+//                                               └──────────────┴──────────────┴──────────────┘   └────────┴────────┴─────┘                                
+  &bootloader   &none           &none           &none           &none           &none           &to DEF        &to GAME        &none    &none   &none            &bootloader
+  &none         &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4        &bt BT_PRV   &bt BT_NXT   &none    &none   &none            &bt BT_CLR 
+  &sys_reset    &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4       &none        &none        &none    &none   &bt BT_CLR_ALL   &sys_reset 
+                                                &trans          &none           &trans              &trans       &none        &trans                                       
+                        >;
+                };
+				gaming_layer {
+                        bindings = <
+//    ┌───────────┬───┬───┬──────┬─────┬─────┐   ┌────────────┬──────────────┬──────────────┬───┬───┬───┐
+//    │    esc    │ Q │ W │  E   │  R  │  T  │   │     Y      │      U       │      I       │ O │ P │ [ │
+//    ├───────────┼───┼───┼──────┼─────┼─────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───┤
+//    │    tab    │ A │ S │  D   │  F  │  G  │   │     H      │      J       │      K       │ L │ ; │ ' │
+//    ├───────────┼───┼───┼──────┼─────┼─────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───┤
+//    │ mt lctl ` │ Z │ X │  C   │  V  │  B  │   │     N      │      M       │      ,       │ . │ / │ \ │
+//    └───────────┴───┴───┼──────┼─────┼─────┤   ├────────────┼──────────────┼──────────────┼───┴───┴───┘
+//                        │ lsft │ spc │ ent │   │ lt LWR esc │ mt rsft bspc │ lt rsftE del │            
+//                        └──────┴─────┴─────┘   └────────────┴──────────────┴──────────────┘            
+  &kp ESC           &kp Q   &kp W   &kp E        &kp R       &kp T         &kp Y         &kp U            &kp I         &kp O     &kp P      &kp LBKT
+  &kp TAB           &kp A   &kp S   &kp D        &kp F       &kp G         &kp H         &kp J            &kp K         &kp L     &kp SEMI   &kp SQT 
+  &mt LCTRL GRAVE   &kp Z   &kp X   &kp C        &kp V       &kp B         &kp N         &kp M            &kp COMMA     &kp DOT   &kp FSLH   &kp BSLH
+                                    &kp LSHFT   &kp SPACE   &kp RET       &lt LWR ESC   &mt RSHFT BSPC   &lt RSE DEL                                
                         >;
                 };
         };
