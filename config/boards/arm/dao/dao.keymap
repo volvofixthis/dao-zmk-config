@@ -55,13 +55,13 @@
         };
 		combo_game {
 			layers = <DEF>;
-            timeout-ms = <50>;
+            timeout-ms = <100>;
 			bindings = <&to GAME>;
             key-positions = <12 14 15 8 20>;
         };
 		combo_game2 {
 			layers = <DEF>;
-            timeout-ms = <50>;
+            timeout-ms = <100>;
 			bindings = <&to GAME>;
             key-positions = <17 12 31 3>;
         };
