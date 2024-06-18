@@ -160,6 +160,7 @@ jobs:
         shell: sh -x {0}
         run: |
           mkdir "${{ env.build_dir }}/artifacts"
+          cp "${{ env.build_dir }}/zephyr/include/generated/devicetree_generated.h" "${{ env.build_dir }}/artifacts/${{ env.artifat_name }}_devicetree_generated.h"
           if [ -f "${{ env.build_dir }}/zephyr/zmk.uf2" ]
           then
             cp "${{ env.build_dir }}/zephyr/zmk.uf2" "${{ env.build_dir }}/artifacts/${{ env.artifact_name }}.uf2"
