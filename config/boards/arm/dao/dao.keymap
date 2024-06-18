@@ -63,7 +63,7 @@
 			layers = <DEF>;
             timeout-ms = <50>;
             bindings = <&to GAME>;
-            key-positions = <13 14 15 17>;
+            key-positions = <13 14 15 16>;
         };
     };
 };
