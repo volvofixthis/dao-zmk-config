@@ -40,14 +40,14 @@
             timeout-ms = <50>;
             key-positions = <39 41 6>;
             bindings = <&to DEF>;
-			slow-release = true;
+			slow-release;
         };
 		combo_game {
 			layers = <DEF>;
             timeout-ms = <50>;
             key-positions = <8 20 12 14 15>;
             bindings = <&to GAME>;
-			slow-release = true;
+			slow-release;
         };
     };
 };
