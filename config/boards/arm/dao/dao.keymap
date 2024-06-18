@@ -41,6 +41,12 @@
             key-positions = <39 41 6>;
             bindings = <&to DEF>;
         };
+		combo_def2 {
+			layers = <GAME>;
+            timeout-ms = <50>;
+            bindings = <&to DEF>;
+            key-positions = <15 3 16>;
+        };
 		combo_game {
 			layers = <DEF>;
             timeout-ms = <50>;
@@ -57,13 +63,7 @@
 			layers = <DEF>;
             timeout-ms = <50>;
             bindings = <&to GAME>;
-            key-positions = <13 14 15 17 16>;
-        };
-        combo_def2 {
-			layers = <DEF>;
-            timeout-ms = <50>;
-            bindings = <&to DEF>;
-            key-positions = <15 3 16>;
+            key-positions = <13 14 15 17>;
         };
     };
 };
