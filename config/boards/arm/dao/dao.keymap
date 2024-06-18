@@ -53,6 +53,18 @@
             key-positions = <17 12 31 3>;
             bindings = <&to GAME>;
         };
+		combo_five {
+			layers = <DEF>;
+            timeout-ms = <50>;
+            bindings = <&to GAME>;
+            key-positions = <13 14 15 17 16>;
+        };
+        combo_def {
+			layers = <DEF>;
+            timeout-ms = <50>;
+            bindings = <&to DEF>;
+            key-positions = <15 3 16>;
+        };
     };
 };
 
