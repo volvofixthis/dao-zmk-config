@@ -26,6 +26,11 @@ config BT_CTLR
 config ZMK_BATTERY_VOLTAGE_DIVIDER
 	default y
 
+config ZMK_COMBO_MAX_PRESSED_COMBOS
+    default 6
+config ZMK_COMBO_MAX_KEYS_PER_COMBO
+    default 6
+
 if USB
 
 config USB_NRFX

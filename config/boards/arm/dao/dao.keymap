@@ -55,13 +55,13 @@
         };
 		combo_game {
 			layers = <DEF>;
-            timeout-ms = <100>;
+            timeout-ms = <50>;
 			bindings = <&to GAME>;
             key-positions = <12 14 15 8 20>;
         };
 		combo_game2 {
 			layers = <DEF>;
-            timeout-ms = <100>;
+            timeout-ms = <50>;
 			bindings = <&to GAME>;
             key-positions = <17 12 31 3>;
         };
@@ -70,6 +70,12 @@
             timeout-ms = <50>;
             bindings = <&to GAME>;
             key-positions = <13 14 15 16>;
+        };
+		combo_caps {
+			layers = <GAME>;
+            timeout-ms = <50>;
+            bindings = <&kp CAPS>;
+            key-positions = <24 37>;
         };
     };
 };
@@ -133,7 +139,7 @@
                 adjust_layer {
                         bindings = <
 //    ┌────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐   ┌────────┬─────────┬─────┬─────┬────────────┬────────────┐
-//    │    boot    │              │              │              │              │              │   │ to DEF │ to GAME │     │     │            │    boot    │
+//    │    boot    │              │              │              │   to GAME    │              │   │        │ to GAME │     │     │            │    boot    │
 //    ├────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼─────────┼─────┼─────┼────────────┼────────────┤
 //    │            │   bt_sel 0   │   bt_sel 1   │   bt_sel 2   │   bt_sel 3   │   bt_sel 4   │   │ bt_prv │ bt_nxt  │     │     │            │   bt_clr   │
 //    ├────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼─────────┼─────┼─────┼────────────┼────────────┤
@@ -141,7 +147,7 @@
 //    └────────────┴──────────────┴──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼─────────┼─────┼─────┴────────────┴────────────┘
 //                                               │              │              │              │   │        │         │     │                                
 //                                               └──────────────┴──────────────┴──────────────┘   └────────┴─────────┴─────┘                                
-  &bootloader   &none           &none           &none           &to GAME           &none               &none      &to GAME     &none    &none   &none            &bootloader
+  &bootloader   &none           &none           &none           &to GAME        &none               &none        &to GAME     &none    &none   &none            &bootloader
   &none         &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4        &bt BT_PRV   &bt BT_NXT   &none    &none   &none            &bt BT_CLR 
   &sys_reset    &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4       &none        &none        &none    &none   &bt BT_CLR_ALL   &sys_reset 
                                                 &trans          &none           &trans              &trans       &none        &trans                                       
@@ -152,15 +158,15 @@
 //    ┌───────────┬───┬───┬──────┬─────┬─────┐   ┌─────┬──────────────┬─────┬───┬───┬───┐
 //    │    esc    │ Q │ W │  E   │  R  │  T  │   │  Y  │      U       │  I  │ O │ P │ [ │
 //    ├───────────┼───┼───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┼───┼───┤
-//    │    tab    │ A │ S │  D   │  F  │  G  │   │  H  │      J       │  K  │ L │ ; │ ' │
+//    │ mt lctl ` │ A │ S │  D   │  F  │  G  │   │  H  │      J       │  K  │ L │ ; │ ' │
 //    ├───────────┼───┼───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┼───┼───┤
-//    │ mt lctl ` │ Z │ X │  C   │  V  │  B  │   │  N  │      M       │  ,  │ . │ / │ \ │
+//    │    tab    │ Z │ X │  C   │  V  │  B  │   │  N  │      M       │  ,  │ . │ / │ \ │
 //    └───────────┴───┴───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┴───┴───┘
 //                        │ lsft │ spc │ ent │   │ esc │ mt rsft bspc │ del │            
 //                        └──────┴─────┴─────┘   └─────┴──────────────┴─────┘            
   &kp ESC           &kp Q   &kp W   &kp E       &kp R       &kp T         &kp Y     &kp U            &kp I       &kp O     &kp P      &kp LBKT
-  &kp TAB           &kp A   &kp S   &kp D       &kp F       &kp G         &kp H     &kp J            &kp K       &kp L     &kp SEMI   &kp SQT 
-  &mt LCTRL GRAVE   &kp Z   &kp X   &kp C       &kp V       &kp B         &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH   &kp BSLH
+  &mt LCTRL GRAVE   &kp A   &kp S   &kp D       &kp F       &kp G         &kp H     &kp J            &kp K       &kp L     &kp SEMI   &kp SQT 
+  &kp TAB           &kp Z   &kp X   &kp C       &kp V       &kp B         &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH   &kp BSLH
                                     &kp LSHFT   &kp SPACE   &kp RET       &kp ESC   &mt RSHFT BSPC   &kp DEL                                  
                         >;
                 };
