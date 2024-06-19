@@ -35,37 +35,19 @@
 / {
     combos {
         compatible = "zmk,combos";
-        combo_def {
-			layers = <GAME>;
-            timeout-ms = <50>;
-			bindings = <&to DEF>;
-            key-positions = <39 41 6>;
-        };
-		combo_def2 {
-			layers = <GAME>;
-            timeout-ms = <50>;
-            bindings = <&to DEF>;
-            key-positions = <15 3 16>;
-        };
-		combo_def3 {
+		combo_def_left {
 			layers = <GAME>;
             timeout-ms = <50>;
             bindings = <&to DEF>;
             key-positions = <5 38 36>;
         };
+        combo_def_right {
+			layers = <GAME>;
+            timeout-ms = <50>;
+			bindings = <&to DEF>;
+            key-positions = <39 41 6>;
+        };
 		combo_game {
-			layers = <DEF>;
-            timeout-ms = <50>;
-			bindings = <&to GAME>;
-            key-positions = <12 14 15 8 20>;
-        };
-		combo_game2 {
-			layers = <DEF>;
-            timeout-ms = <50>;
-			bindings = <&to GAME>;
-            key-positions = <17 12 31 3>;
-        };
-		combo_game3 {
 			layers = <DEF>;
             timeout-ms = <50>;
             bindings = <&to GAME>;
