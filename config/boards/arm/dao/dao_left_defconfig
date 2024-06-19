@@ -24,7 +24,6 @@ CONFIG_FLASH_PAGE_LAYOUT=y
 CONFIG_FLASH_MAP=y
 
 # # Turn on logging, and set ZMK logging to debug output
-CONFIG_ZMK_USB_LOGGING=y
 CONFIG_ZMK_LOG_LEVEL_DBG=y
 
 # Turn on uf2 build
