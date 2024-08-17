@@ -72,7 +72,7 @@
             bindings = <&kp ESC>, <&kp CAPS>;
             mods = <MOD_LSFT>;
         };
-		winsht: win_shift {
+		winsft: win_shift {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
             bindings = <&kp LSHFT>, <&kp LGUI>;
@@ -104,19 +104,19 @@
                 };
 				game_layer {
                         bindings = <
-//    ┌────────┬───┬───┬──────────────┬───────────┬────────────┐   ┌────────────┬──────────────┬──────────────┬───┬───┬───────────┐
-//    │ &cpesc │ Q │ W │      E       │     R     │     T      │   │     Y      │      U       │      I       │ O │ P │     [     │
-//    ├────────┼───┼───┼──────────────┼───────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───────────┤
-//    │  lsft  │ A │ S │      D       │     F     │     G      │   │     H      │      J       │      K       │ L │ ; │     '     │
-//    ├────────┼───┼───┼──────────────┼───────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───────────┤
-//    │  lctl  │ Z │ X │      C       │     V     │     B      │   │     N      │      M       │      ,       │ . │ / │ mt ralt \ │
-//    └────────┴───┴───┼──────────────┼───────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┴───┴───────────┘
-//                     │ lt rsftE tab │ &win_shft │ lt LWR ent │   │ lt LWR esc │ mt rsft bspc │ lt rsftE del │                    
-//                     └──────────────┴───────────┴────────────┘   └────────────┴──────────────┴──────────────┘                    
-  &cpesc       &kp Q   &kp W   &kp E         &kp R       &kp T             &kp Y         &kp U            &kp I         &kp O     &kp P      &kp LBKT     
-  &kp LSHIFT   &kp A   &kp S   &kp D         &kp F       &kp G             &kp H         &kp J            &kp K         &kp L     &kp SEMI   &kp SQT      
-  &kp LCTRL    &kp Z   &kp X   &kp C         &kp V       &kp B             &kp N         &kp M            &kp COMMA     &kp DOT   &kp FSLH   &mt RALT BSLH
-                               &lt RSE TAB   &win_shft   &lt LWR RET       &lt LWR ESC   &mt RSHFT BSPC   &lt RSE DEL                                     
+//    ┌────────┬───┬───┬──────────────┬─────────┬────────────┐   ┌────────────┬──────────────┬──────────────┬───┬───┬───────────┐
+//    │ &cpesc │ Q │ W │      E       │    R    │     T      │   │     Y      │      U       │      I       │ O │ P │     [     │
+//    ├────────┼───┼───┼──────────────┼─────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───────────┤
+//    │  lsft  │ A │ S │      D       │    F    │     G      │   │     H      │      J       │      K       │ L │ ; │     '     │
+//    ├────────┼───┼───┼──────────────┼─────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───────────┤
+//    │  lctl  │ Z │ X │      C       │    V    │     B      │   │     N      │      M       │      ,       │ . │ / │ mt ralt \ │
+//    └────────┴───┴───┼──────────────┼─────────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┴───┴───────────┘
+//                     │ lt rsftE tab │ &winsft │ lt LWR ent │   │ lt LWR esc │ mt rsft bspc │ lt rsftE del │                    
+//                     └──────────────┴─────────┴────────────┘   └────────────┴──────────────┴──────────────┘                    
+  &cpesc       &kp Q   &kp W   &kp E         &kp R     &kp T             &kp Y         &kp U            &kp I         &kp O     &kp P      &kp LBKT     
+  &kp LSHIFT   &kp A   &kp S   &kp D         &kp F     &kp G             &kp H         &kp J            &kp K         &kp L     &kp SEMI   &kp SQT      
+  &kp LCTRL    &kp Z   &kp X   &kp C         &kp V     &kp B             &kp N         &kp M            &kp COMMA     &kp DOT   &kp FSLH   &mt RALT BSLH
+                               &lt RSE TAB   &winsft   &lt LWR RET       &lt LWR ESC   &mt RSHFT BSPC   &lt RSE DEL                                     
                         >;
                 };
                 lower_layer {
