@@ -9,10 +9,10 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEF 0
-#define LWR 1
-#define RSE 2
-#define ADJ 3
-#define GAME 4
+#define GAME 1
+#define LWR 2
+#define RSE 3
+#define ADJ 4
 
 // Editor: https://nickcoutsos.github.io/keymap-editor/
 
@@ -83,6 +83,23 @@
                                     &lt RSE TAB   &mt LSHFT SPACE   &lt LWR RET       &lt LWR ESC   &mt RSHFT BSPC   &lt RSE DEL                                
                         >;
                 };
+				game_layer {
+                        bindings = <
+//    ┌─────────┬───┬───┬──────────────┬─────┬────────────┐   ┌────────────┬──────────────┬──────────────┬───┬───┬───────────┐
+//    │   esc   │ Q │ W │      E       │  R  │     T      │   │     Y      │      U       │      I       │ O │ P │     [     │
+//    ├─────────┼───┼───┼──────────────┼─────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───────────┤
+//    │ LFSHIFT │ A │ S │      D       │  F  │     G      │   │     H      │      J       │      K       │ L │ ; │     '     │
+//    ├─────────┼───┼───┼──────────────┼─────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┼───┼───────────┤
+//    │  lctl   │ Z │ X │      C       │  V  │     B      │   │     N      │      M       │      ,       │ . │ / │ mt ralt \ │
+//    └─────────┴───┴───┼──────────────┼─────┼────────────┤   ├────────────┼──────────────┼──────────────┼───┴───┴───────────┘
+//                      │ lt rsftE tab │ spc │ lt LWR ent │   │ lt LWR esc │ mt rsft bspc │ lt rsftE del │                    
+//                      └──────────────┴─────┴────────────┘   └────────────┴──────────────┴──────────────┘                    
+  &kp ESC       &kp Q   &kp W   &kp E         &kp R       &kp T             &kp Y         &kp U            &kp I         &kp O     &kp P      &kp LBKT     
+  &kp LFSHIFT   &kp A   &kp S   &kp D         &kp F       &kp G             &kp H         &kp J            &kp K         &kp L     &kp SEMI   &kp SQT      
+  &kp LCTRL     &kp Z   &kp X   &kp C         &kp V       &kp B             &kp N         &kp M            &kp COMMA     &kp DOT   &kp FSLH   &mt RALT BSLH
+                                &lt RSE TAB   &kp SPACE   &lt LWR RET       &lt LWR ESC   &mt RSHFT BSPC   &lt RSE DEL                                     
+                        >;
+                };
                 lower_layer {
                         bindings = <
 //    ┌────────────┬────┬────┬────────────┬─────┬─────┐   ┌─────┬─────┬────────────┬─────┬─────┬─────┐
@@ -121,7 +138,7 @@
                 adjust_layer {
                         bindings = <
 //    ┌────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐   ┌────────┬─────────┬─────┬─────┬────────────┬────────────┐
-//    │    boot    │              │              │              │   to GAME    │              │   │        │ to GAME │     │     │            │    boot    │
+//    │    boot    │              │              │              │   to GAME    │    to DEF    │   │ to DEF │ to GAME │     │     │            │    boot    │
 //    ├────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼─────────┼─────┼─────┼────────────┼────────────┤
 //    │            │   bt_sel 0   │   bt_sel 1   │   bt_sel 2   │   bt_sel 3   │   bt_sel 4   │   │ bt_prv │ bt_nxt  │     │     │            │   bt_clr   │
 //    ├────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼─────────┼─────┼─────┼────────────┼────────────┤
@@ -129,27 +146,10 @@
 //    └────────────┴──────────────┴──────────────┼──────────────┼──────────────┼──────────────┤   ├────────┼─────────┼─────┼─────┴────────────┴────────────┘
 //                                               │              │              │              │   │        │         │     │                                
 //                                               └──────────────┴──────────────┴──────────────┘   └────────┴─────────┴─────┘                                
-  &bootloader   &none           &none           &none           &to GAME        &none               &none        &to GAME     &none    &none   &none            &bootloader
+  &bootloader   &none           &none           &none           &to GAME        &to DEF             &to DEF      &to GAME     &none    &none   &none            &bootloader
   &none         &bt BT_SEL 0    &bt BT_SEL 1    &bt BT_SEL 2    &bt BT_SEL 3    &bt BT_SEL 4        &bt BT_PRV   &bt BT_NXT   &none    &none   &none            &bt BT_CLR 
   &sys_reset    &bt BT_DISC 0   &bt BT_DISC 1   &bt BT_DISC 2   &bt BT_DISC 3   &bt BT_DISC 4       &none        &none        &none    &none   &bt BT_CLR_ALL   &sys_reset 
                                                 &trans          &none           &trans              &trans       &none        &trans                                       
-                        >;
-                };
-				game_layer {
-                        bindings = <
-//    ┌──────┬───┬───┬──────┬─────┬─────┐   ┌─────┬──────────────┬─────┬───┬───┬───┐
-//    │ esc  │ Q │ W │  E   │  R  │  T  │   │  Y  │      U       │  I  │ O │ P │ [ │
-//    ├──────┼───┼───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┼───┼───┤
-//    │ lctl │ A │ S │  D   │  F  │  G  │   │  H  │      J       │  K  │ L │ ; │ ' │
-//    ├──────┼───┼───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┼───┼───┤
-//    │ tab  │ Z │ X │  C   │  V  │  B  │   │  N  │      M       │  ,  │ . │ / │ \ │
-//    └──────┴───┴───┼──────┼─────┼─────┤   ├─────┼──────────────┼─────┼───┴───┴───┘
-//                   │ lsft │ spc │ ent │   │ esc │ mt rsft bspc │ del │            
-//                   └──────┴─────┴─────┘   └─────┴──────────────┴─────┘            
-  &kp ESC     &kp Q   &kp W   &kp E       &kp R       &kp T         &kp Y     &kp U            &kp I       &kp O     &kp P      &kp LBKT
-  &kp LCTRL   &kp A   &kp S   &kp D       &kp F       &kp G         &kp H     &kp J            &kp K       &kp L     &kp SEMI   &kp SQT 
-  &kp TAB     &kp Z   &kp X   &kp C       &kp V       &kp B         &kp N     &kp M            &kp COMMA   &kp DOT   &kp FSLH   &kp BSLH
-                              &kp LSHFT   &kp SPACE   &kp RET       &kp ESC   &mt RSHFT BSPC   &kp DEL                                  
                         >;
                 };
         };
